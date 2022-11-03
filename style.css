@@ -4,15 +4,56 @@
   box-sizing: border-box;
 }
 
+:root {
+  --card-title-border-color: #746615;
+  --card-color-primary: #f7dd43;
+  --card-bg-color: #1d1c19;
+  --bg: url(./assets/bg-yellow.svg);
+}
+
+.blue {
+  --card-title-border-color: #338af3;
+  --card-color-primary: #338af3;
+  --card-bg-color: #202024;
+  --bg: url(./assets/bg-blue.svg);
+}
+
+.green {
+  --card-title-border-color: #047c3f;
+  --card-color-primary: #047c3f;
+  --card-bg-color: #1a1f1b;
+  --bg: url(./assets/bg-green.svg);
+}
+
+.purple {
+  --card-title-border-color: #480048;
+  --card-color-primary: #480048;
+  --card-bg-color: #612a52;
+  --bg: url(./assets/bg-purple.svg);
+}
+
+.tema button {
+  font-size: 16px;
+  padding: 8px 16px;
+  background: transparent;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid #e1e1e6;
+  color: #f7dd43;
+  cursor: pointer;
+  margin: 32px 16px;
+}
+
 ul {
   list-style: none;
 }
 
 body {
   background-color: #121214;
-  background-image: url(assets/bg.svg);
-  background-position-x: center;
-  background-position-y: -715px;
+  background-image: var(--bg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 body * {
@@ -21,7 +62,8 @@ body * {
 
 #app {
   width: fit-content;
-  margin: 52px auto;
+  margin: auto;
+  padding-top: 52px;
 }
 
 header {
@@ -36,8 +78,8 @@ header {
 }
 
 .card {
-  background: #1d1c19;
-  border-bottom: 2px solid #f7dd43;
+  background: var(--card-bg-color);
+  border-bottom: 2px solid var(--card-color-primary);
   border-radius: 6px;
   padding: 32px 23px;
   text-align: center;
@@ -45,7 +87,7 @@ header {
 
 .card h2 {
   align-items: center;
-  border: 1px solid #746615;
+  border: 1px solid var(--card-title-border-color);
   border-radius: 6px;
   color: #f7dd43;
   display: flex;
@@ -86,4 +128,49 @@ header {
   font-size: 36px;
   font-weight: 900;
   line-height: 125%;
+}
+
+.card h2:hover,
+.card ul li strong:hover,
+.card ul li img:hover {
+  transform: scale(1.1);
+}
+
+.card h2,
+.card ul li strong,
+.card ul li img {
+  transition: transform 0.3s;
+}
+
+.card {
+  opacity: 0;
+  animation: appear 0.2s forwards;
+}
+
+@keyframes appear {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 700px) {
+  #cards {
+    max-width: 1024px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 700px) {
+  .tema button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 32px auto;
+  }
 }

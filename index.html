@@ -15,8 +15,19 @@
     />
   </head>
 
-  <body>
-    <div id="app"></div>
+  <body class="">
+    <div id="app">
+      <header>
+        <img src="./assets/logo.svg" alt="Logo da NLW" />
+        <div class="tema">
+          <button onclick="mudaAzul()">Tema Azul</button>
+          <button onclick="mudaVerde()">Tema Verde</button>
+          <button onclick="mudaRoxo()">Tema Roxo</button>
+        </div>
+      </header>
+
+      <main id="cards"></main>
+    </div>
     <script src="./main.js"></script>
   </body>
 </html>
